@@ -25,7 +25,7 @@ Jeff Carlin
 % \setDocCurator{The Curator of this Document}
 
 \setDocAbstract{%
-Add abstract text.
+This brief report describes measurements of data quality metrics that were carried out for release v25.0.0 of the LSST Science Pipelines. The report for the previous version can be found in \citedsp{DMTR-391}.
 }
 
 % Revision history.
@@ -40,8 +40,17 @@ Add abstract text.
 
 \maketitle
 
-% ADD CONTENT HERE
-% You can also use the \input command to include several content files.
+In this Report, we characterize the performance of the Rubin Observatory Science Pipelines Version 25.0.0. We illustrate the performance via metrics that are measured on the HSC-RC2 dataset. RC2 consists of 3 tracts of data taken from the HSC-SSP survey, and selected to provide a means of testing various ``pathological'' cases (e.g., difficult astrometric solutions, extremely good seeing that does not provide a well-sampled PSF, difficult fields for deblending, and large galaxies, among others). These three tracts each contain between 112--149 visits split between the HSC-G, HSC-R, HSC-I, HSC-Z, and HSC-Y (\emph{grizy}) filters.
+
+WHAT'S NEW IN V25? Version 25.0.0 represents the first data release production pipeline that relies entirely on Gen3 middleware; Gen2 middleware is now deprecated as of this release.
+
+All metrics reported here were calculated using the \href{https://github.com/lsst/faro}{faro} metric calculation package, which is part of the standard pipeline builds. All of the underlying algorithms to calculate metrics within \texttt{faro} are the same as they were in v24.0.0 of the Science Pipelines, so most metrics are expected to show similar results between v24 and v25 releases.
+
+The metric calculation pipelines from \texttt{faro} were run on the RC2 tracts to derive the photometric, astrometric, and shape metrics that are reported here. We exclude the two astrometry metrics (AM3 and AF3) that concern residuals on 200-arcminute scales, since the individual tracts of RC2 do not span large enough spatial scales to enable these measurements.
+
+For comparison, we provide the \SRD required ``design'' value of each metric as defined in the Science Requirements Document \citedsp{LPM-17}. For context, the \SRD does not place any constraints on \emph{y}-band for these Key Performance Metrics (KPMs).  For the photometric metrics, there are only specifications for \emph{g}, \emph{r}, and \emph{i}. In the case of the ellipticity correlation metrics, there are specs only for \emph{r} and \emph{i}. The \emph{y}-band measurements are of interest primarily for historical tracking.
+
+Some KPMs (e.g., PF1, AF1, AF2) involve thresholds that are different for ``design'', ``minimum'', and ``stretch'' specifications. Metrics in this report are all compared to the ``design'' thresholds. The assessment of these KPMs would be different if evaluated against different thresholds.
 
 \appendix
 
