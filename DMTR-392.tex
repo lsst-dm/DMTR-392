@@ -47,13 +47,13 @@ This brief report describes measurements of data quality metrics that were carri
 In this Report, we characterize the performance of the Rubin Observatory Science Pipelines Version 25.0.0. We illustrate the performance via metrics that are measured on the HSC-RC2 dataset. RC2 consists of 3 tracts of data taken from the HSC-SSP survey, and selected to provide a means of testing various ``pathological'' cases (e.g., difficult astrometric solutions, extremely good seeing that does not provide a well-sampled PSF, difficult fields for deblending, and large galaxies, among others). These three tracts each contain between 112--149 visits split between the HSC-G, HSC-R, HSC-I, HSC-Z, and HSC-Y (\emph{grizy}) filters.
 
 Between w\_2022\_28 (2022-07-07; the source for pipelines version 24) and w\_2022\_48 (v25 source), we have made the following major changes.
-The pipelines now have the capability to generate HIPS trees from high-resolution, healpix-projected coadds with native Rubin code. This task was used to produce the HIPS images that are viewable in the Portal for DP0.2.
+The pipelines now have the capability to generate HIPS trees from high-resolution, healpix-projected coadds with native Rubin code. This task was used to produce the HIPS images that are viewable in the Portal for Data Preview 0.2.
 \texttt{ScarletDeblendTask} now outputs a single storage container that allows users to access both the \texttt{scarlet} models and flux re-distributed models. This change uses an order of magnitude less storage space.
 A new package called \texttt{analysis\_tools} was added; \texttt{analysis\_tools} provides efficient, scalable, consistent and reproducible calculation of metrics and plots for quality assurance analyses. This will be the main resource for data-quality monitoring tools in the future.
 Also added in version 25 of the pipelines is the package \texttt{gbdes}, which will be used for astrometry in future versions of the science pipelines. The \texttt{gbdes} task will be available in version 26.
-Finally, v25 introduces an image subtraction refactor, where the combination of \texttt{subtractImages} and \texttt{detectAndMeasureDiaSources} has been introduced to replaced by the \texttt{imageDifference} task.
+Finally, v25 introduces an image subtraction refactor, where the combination of \texttt{subtractImages} and \texttt{detectAndMeasureDiaSources} has been introduced to replace the \texttt{imageDifference} task.
 
-All metrics reported here were calculated using the \href{https://github.com/lsst/faro}{faro} metric calculation package, which is part of the standard pipeline builds. All of the underlying algorithms to calculate metrics within \texttt{faro} are the same as they were in v24.1.0 of the Science Pipelines, so most metrics are expected to show similar results between v24 and v25 releases.
+All metrics reported here were calculated using the \href{https://github.com/lsst/faro}{faro} metric calculation package, which is part of the standard pipeline builds. All of the underlying algorithms to calculate metrics within \texttt{faro} are the same as they were in v24.1.0 of the Science Pipelines, so any differences between metrics from the v24 and v25 releases are due to changes in the underlying pipelines.
 
 The metric calculation pipelines from \texttt{faro} were run on the RC2 tracts to derive the photometric, astrometric, and shape metrics that are reported here. We exclude the two astrometry metrics (AM3 and AF3) that concern residuals on 200-arcminute scales, since the individual tracts of RC2 do not span large enough spatial scales to enable these measurements.
 
@@ -71,7 +71,7 @@ Because there have been no major changes in the data processing algorithms in th
 \begin{figure}[!t]
   \centering
   \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/photom_metrics_v25.png}
-  \caption{Photometry metrics PA1 (photometric repeatability) and PF1 (percentage of measurements exceeding the outlier threshold) measured in the $r$-band. The figure shows the values of these metrics as measured in versions 19-25 of the LSST Science Pipelines. These metrics do not show significant changes between the previous release (v23) and the current one (v25).}
+  \caption{Photometry metrics PA1 (photometric repeatability) and PF1 (percentage of measurements exceeding the outlier threshold) measured in the $r$-band. The figure shows the values of these metrics as measured in versions 19-25 of the LSST Science Pipelines. The measured values of both metrics have not changed significantly between the previous release (v24) and the current one (v25), as expected since no major changes were made to the photometric measurement algorithms between v24 and v25.}
   \label{fig:phot_metrics}
 \end{figure}
 
@@ -90,7 +90,7 @@ Unit\strut
 \end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
 SRD Requirement -- Design\strut
 \end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
-Release 23 Value (RC2) \strut
+Release 24 Value (RC2) \strut
 \end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
 Release 25 Value (RC2) \strut
 \end{minipage} & \begin{minipage}[b]{0.17\columnwidth}\raggedright\strut
@@ -133,7 +133,7 @@ mmag\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 5.0\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-7.1 \strut
+6.8 \strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 6.7 \strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -146,7 +146,7 @@ mmag\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 5.0\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-8.4\strut
+8.0\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 8.1\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -159,7 +159,7 @@ mmag\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 5.0\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-8.7\strut
+8.6\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 8.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -172,7 +172,7 @@ mmag\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 7.5\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-6.7\strut
+6.4\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 6.6\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -185,7 +185,7 @@ mmag\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 7.5\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-7.9\strut
+7.0\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.2\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -211,7 +211,7 @@ PF1: \emph{g}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-10.7\strut
+9.4\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 9.2\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -224,7 +224,7 @@ PF1: \emph{r}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-14.0\strut
+12.8\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 13.4\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -237,7 +237,7 @@ PF1: \emph{i}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-14.5\strut
+13.5\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 14.1\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -250,7 +250,7 @@ PF1: \emph{z}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-8.1\strut
+6.6\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.1\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -263,7 +263,7 @@ PF1: \emph{y}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-11.5\strut
+8.2\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 8.9\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -272,15 +272,15 @@ PF1: \emph{y}\strut
 \bottomrule
 \end{longtable}
 
+\section{Astrometric Performance}\label{astrometric-performance}
+
 \begin{figure}[!t]
   \centering
   \includegraphics[width=0.475\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/astrom_metrics_v25.png}
   \includegraphics[width=0.475\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/astrom_outlier_metrics_v25.png}
-  \caption{Astrometry metrics measured on $r$-band images compared over the past few major pipelines releases. \textit{Left: } Median astrometric measurement error on 5-arcminute scales (AM1) and 20-arcminute scales (AM2). \textit{Right: } Fraction of astrometric measurements exceeding the outlier threshold on 5-arcminute (AF1) and 20-arcminute (AF2) scales. None of these metrics show significant changes since the previous release. }
+  \caption{Astrometry metrics measured on $r$-band images compared over the past few major pipelines releases. \textit{Left: } Median astrometric measurement error on 5-arcminute scales (AM1) and 20-arcminute scales (AM2). \textit{Right: } Fraction of astrometric measurements exceeding the outlier threshold on 5-arcminute (AF1) and 20-arcminute (AF2) scales. The measured values of these metrics were virtually unchanged between pipelines version 24 and v25, as expected since no major changes have been made to astrometric measurement algorithms between v24 and v25. }
   \label{fig:astrom_metrics}
 \end{figure}
-
-\section{Astrometric Performance}\label{astrometric-performance}
 
 The following metrics are defined following LSR-REQ-0094
 \citedsp{LSE-29} and Table 18 of \citeds{LPM-17}. Values in this table represent the mean of the results reported by \texttt{faro} for the three tracts in RC2.
@@ -296,7 +296,7 @@ Unit\strut
 \end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
 SRD Requirement -- Design\strut
 \end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
-Release 23 Value (RC2)\strut
+Release 24 Value (RC2)\strut
 \end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
 Release 25 Value (RC2) \strut
 \end{minipage} & \begin{minipage}[b]{0.17\columnwidth}\raggedright\strut
@@ -324,7 +324,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-5.3\strut
+5.4\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 5.4 \strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -337,7 +337,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-4.9\strut
+5.0\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 5.0\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -350,7 +350,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-4.4\strut
+4.9\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 5.0\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -363,7 +363,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-5.1\strut
+5.8\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 5.8\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -376,7 +376,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-6.7\strut
+8.5\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 8.5\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -402,7 +402,7 @@ AF1: \emph{g}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-0.8\strut
+0.9\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 0.9\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -415,7 +415,7 @@ AF1: \emph{r}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-1.5\strut
+1.1\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 1.1\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -428,7 +428,7 @@ AF1: \emph{i}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-0.5\strut
+0.8\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 0.8\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -454,7 +454,7 @@ AF1: \emph{y}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-2.5\strut
+3.6\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 3.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -480,7 +480,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-7.5\strut
+7.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -493,7 +493,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-7.6\strut
+7.4\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.4\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -506,7 +506,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-6.4\strut
+6.6\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 6.6\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -519,7 +519,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-7.8\strut
+7.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -532,7 +532,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-10.0\strut
+11.4\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 11.5\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -558,7 +558,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-5.2\strut
+5.3\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 5.3\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -571,7 +571,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-4.8\strut
+4.9\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 4.9\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -584,7 +584,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-4.4\strut
+4.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 4.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -597,7 +597,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-5.2\strut
+5.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 5.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -610,7 +610,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-6.5\strut
+8.3\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 8.3\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -636,7 +636,7 @@ AF2: \emph{g}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-0.8\strut
+0.9\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 0.8\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -662,7 +662,7 @@ AF2: \emph{i}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-0.6\strut
+0.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 0.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -688,7 +688,7 @@ AF2: \emph{y}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-3.5\strut
+3.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 3.8\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -727,7 +727,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-7.4\strut
+7.5\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.5\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -753,7 +753,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-7.8\strut
+7.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -766,7 +766,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 20\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-10.8\strut
+11.5\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 11.6\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -792,7 +792,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-8.5\strut
+4.8\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 4.9\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -805,7 +805,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-4.6\strut
+4.8\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 4.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -818,7 +818,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-5.1\strut
+5.7\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 5.7\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -831,7 +831,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-4.4\strut
+4.9\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 4.9\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -844,7 +844,7 @@ mas\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 10\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-6.1\strut
+7.0\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 7.0\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -860,7 +860,7 @@ mas\strut
 \begin{figure}[!t]
   \centering
   \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/ellip_metrics_v25.png}
-  \caption{Median ellipticity residual correlations at 1-arcminute (TE1; normalized by a factor of $1\times10^{-5}$) and 5-arcminute (TE2; normalized by $1\times10^{-7}$) scales, as measured on $r$-band images, compared over the past few major pipelines releases. These metrics do not show significant changes since the previous release. }
+  \caption{Median ellipticity residual correlations at 1-arcminute (TE1; normalized by a factor of $1\times10^{-5}$) and 5-arcminute (TE2; normalized by $1\times10^{-7}$) scales, as measured on $r$-band images, compared over the past few major pipelines releases. The measured values of these metrics show little change between v24 and v25, as expected since the shape measurement and PSF estimation algorithms were unchanged between v24 and v25. }
   \label{fig:ellip_metrics}
 \end{figure}
 
@@ -878,7 +878,7 @@ Unit\strut
 \end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright\strut
 SRD Requirement -- Design\strut
 \end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
-Release 23 Value (RC2) \strut
+Release 24 Value (RC2) \strut
 \end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright\strut
 Release 25 Value (RC2) \strut
 \end{minipage} & \begin{minipage}[b]{0.17\columnwidth}\raggedright\strut
@@ -906,7 +906,7 @@ TE1: \emph{g}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 2\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(1.8\times10^{-5}\) \strut
+\(1.4\times10^{-5}\) \strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(1.6\times10^{-5}\) \strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -919,7 +919,7 @@ TE1: \emph{r}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 2\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(3.0\times10^{-4}\)\strut
+\(1.4\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(1.5\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -932,7 +932,7 @@ TE1: \emph{i}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 2\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(1.0\times10^{-5}\)\strut
+\(1.5\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(1.5\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -945,7 +945,7 @@ TE1: \emph{z}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 2\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(7.9\times10^{-6}\) \strut
+\(9.1\times10^{-6}\) \strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(9.8\times10^{-6}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -958,7 +958,7 @@ TE1: \emph{y}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 2\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(1.3\times10^{-5}\)\strut
+\(2.4\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(2.8\times10^{-5}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -984,7 +984,7 @@ TE2: \emph{g}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 1\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(9.7\times10^{-7}\)\strut
+\(7.6\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(6.1\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -997,7 +997,7 @@ TE2: \emph{r}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 1\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(1.1\times10^{-6}\)\strut
+\(3.9\times10^{-6}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(4.5\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -1010,7 +1010,7 @@ TE2: \emph{i}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 1\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(1.5\times10^{-6}\)\strut
+\(4.2\times10^{-6}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(6.3\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -1023,7 +1023,7 @@ TE2: \emph{z}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 1\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(8.2\times10^{-7}\)\strut
+\(4.0\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(3.2\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
@@ -1036,7 +1036,7 @@ TE2: \emph{y}\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 \(\leq 1\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
-\(1.4\times10^{-6}\)\strut
+\(7.5\times10^{-6}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 \(6.3\times10^{-7}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright\strut
