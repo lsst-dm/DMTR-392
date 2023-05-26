@@ -70,7 +70,7 @@ The major changes between versions 24 and 25 outlined in the previous section re
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/photom_metrics_v25.png}
+  \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/photom_metrics_v25_with_thresholds.png}
   \caption{Photometry metrics PA1 (photometric repeatability) and PF1 (percentage of measurements exceeding the outlier threshold) measured in the $r$-band. The figure shows the values of these metrics as measured in versions 19-25 of the LSST Science Pipelines. The measured values of both metrics have not changed significantly between the previous release (v24) and the current one (v25), as expected since no major changes were made to the photometric measurement algorithms between v24 and v25.}
   \label{fig:phot_metrics}
 \end{figure}
@@ -276,8 +276,8 @@ PF1: \emph{y}\strut
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=0.475\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/astrom_metrics_v25.png}
-  \includegraphics[width=0.475\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/astrom_outlier_metrics_v25.png}
+  \includegraphics[width=0.475\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/astrom_metrics_v25_with_thresholds.png}
+  \includegraphics[width=0.475\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/astrom_outlier_metrics_v25_with_thresholds.png}
   \caption{Astrometry metrics measured on $r$-band images compared over the past few major pipelines releases. \textit{Left: } Median astrometric measurement error on 5-arcminute scales (AM1) and 20-arcminute scales (AM2). \textit{Right: } Fraction of astrometric measurements exceeding the outlier threshold on 5-arcminute (AF1) and 20-arcminute (AF2) scales. The measured values of these metrics were virtually unchanged between pipelines version 24 and v25, as expected since no major changes have been made to astrometric measurement algorithms between v24 and v25. }
   \label{fig:astrom_metrics}
 \end{figure}
@@ -859,7 +859,7 @@ mas\strut
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/ellip_metrics_v25.png}
+  \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/ellip_metrics_v25_with_thresholds.png}
   \caption{Median ellipticity residual correlations at 1-arcminute (TE1; normalized by a factor of $1\times10^{-5}$) and 5-arcminute (TE2; normalized by $1\times10^{-7}$) scales, as measured on $r$-band images, compared over the past few major pipelines releases. The measured values of these metrics show little change between v24 and v25, as expected since the shape measurement and PSF estimation algorithms were unchanged between v24 and v25. }
   \label{fig:ellip_metrics}
 \end{figure}
