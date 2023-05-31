@@ -62,18 +62,17 @@ For comparison, we provide the \SRD required ``design'' value of each metric as 
 Some KPMs (e.g., PF1, AF1, AF2) involve thresholds that are different for ``design'', ``minimum'', and ``stretch'' specifications. Metrics in this report are all compared to the ``design'' thresholds. The assessment of these KPMs would be different if evaluated against different thresholds.
 
 %\section{Metric monitoring dashboard}\label{sec:dashboard}
-
-\section{Summary of performance metrics}
-
-The major changes between versions 24 and 25 outlined in the previous section relate to ancillary data products, improvements in efficiency, new tasks that will not be fully in use until version 26, and difference imaging tasks. Thus the data processing algorithms in the Science Pipelines are virtually unchanged between versions 24 and 25, so the data quality metrics should also be similar. Indeed, the astrometry metrics (Section~\ref{astrometric-performance}) are nearly identical (none changed by more than $3\%$) between the previous (v24) and current (v25) Science Pipelines releases. The photometry metrics (Section~\ref{photometric-performance}) and ellipticity correlation metrics (Section~\ref{ellipticity-correlations}) show small differences between Release 24 and 25, most of which represent minor improvements in the metric values.
-
-
 \begin{figure}[!t]
   \centering
   \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/photom_metrics_v25_with_thresholds.png}
   \caption{Photometry metrics PA1 (photometric repeatability) and PF1 (percentage of measurements exceeding the outlier threshold) measured in the $r$-band. The figure shows the values of these metrics as measured in versions 22-25 of the LSST Science Pipelines. The measured values of both metrics have not changed significantly between the previous release (v24) and the current one (v25), as expected since no major changes were made to the photometric measurement algorithms between v24 and v25.}
   \label{fig:phot_metrics}
 \end{figure}
+
+\section{Summary of performance metrics}
+
+The major changes between versions 24 and 25 outlined in the previous section relate to ancillary data products, improvements in efficiency, new tasks that will not be fully in use until version 26, and difference imaging tasks. Thus the data processing algorithms in the Science Pipelines are virtually unchanged between versions 24 and 25, so the data quality metrics should also be similar. Indeed, the astrometry metrics (Section~\ref{astrometric-performance}) are nearly identical (none changed by more than $3\%$) between the previous (v24) and current (v25) Science Pipelines releases. The photometry metrics (Section~\ref{photometric-performance}) and ellipticity correlation metrics (Section~\ref{ellipticity-correlations}) show small differences between Release 24 and 25, most of which represent minor improvements in the metric values.
+
 
 \section{Photometric Performance}\label{photometric-performance}
 
