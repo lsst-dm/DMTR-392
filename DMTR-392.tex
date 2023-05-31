@@ -71,7 +71,7 @@ The major changes between versions 24 and 25 outlined in the previous section re
 \begin{figure}[!t]
   \centering
   \includegraphics[width=0.6\textwidth, trim=0.0in 0.0in 0.0in 0.0in, clip]{figures/photom_metrics_v25_with_thresholds.png}
-  \caption{Photometry metrics PA1 (photometric repeatability) and PF1 (percentage of measurements exceeding the outlier threshold) measured in the $r$-band. The figure shows the values of these metrics as measured in versions 19-25 of the LSST Science Pipelines. The measured values of both metrics have not changed significantly between the previous release (v24) and the current one (v25), as expected since no major changes were made to the photometric measurement algorithms between v24 and v25.}
+  \caption{Photometry metrics PA1 (photometric repeatability) and PF1 (percentage of measurements exceeding the outlier threshold) measured in the $r$-band. The figure shows the values of these metrics as measured in versions 22-25 of the LSST Science Pipelines. The measured values of both metrics have not changed significantly between the previous release (v24) and the current one (v25), as expected since no major changes were made to the photometric measurement algorithms between v24 and v25.}
   \label{fig:phot_metrics}
 \end{figure}
 
@@ -853,7 +853,6 @@ mas\strut
 \bottomrule
 \end{longtable}
 
-%Almost all of the astrometric metrics are improved with RC2 relative to their values with validation\_data\_hsc. This behavior is expected, because validate\_drp does not include running jointcal, while the RC2 processing does include jointcal. This results in improved astrometry because (1) jointcal simultaneously fits positions of objects in all visits, and (2) RC2 contains more visits, which allows for improvement in the statistical noise of astrometry measurements.
 
 \section{Ellipticity Correlations}\label{ellipticity-correlations}
 
